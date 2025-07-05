@@ -3,6 +3,8 @@ import { motion } from 'framer-motion';
 import { FaEye } from 'react-icons/fa';
 import RestaurantDetailsModal from './RestaurantDetailsModal';
 import { toast } from 'react-toastify';
+import { BASE_API_URL } from './config'
+
 
 function CompletedTasksTable({ token }) {
   const [tasks, setTasks] = useState([]);
@@ -11,7 +13,7 @@ function CompletedTasksTable({ token }) {
   useEffect(() => {
     const fetchTasks = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/user/tasks/completed', {
+        const response = await fetch(`${BASE_API_URL}/user/tasks/completed`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         if (!response.ok) {

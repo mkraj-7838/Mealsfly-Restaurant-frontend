@@ -13,6 +13,9 @@ import AuthPage from "./components/AuthPage";
 import AdminDashboard from "./components/AdminDashboard";
 import UserDashboard from "./components/UserDashboard";
 import "./App.css";
+const BASE_API_URL = 'https://restaurant-review-manage.onrender.com/api';
+
+
 
 function App() {
   const [user, setUser] = useState(null);
@@ -30,7 +33,7 @@ function App() {
 
     const verifyToken = async () => {
       try {
-        const res = await fetch("http://localhost:5000/api/auth/verify-token", {
+        const res = await fetch(`${BASE_API_URL}/auth/verify-token`, {
           headers: { Authorization: `Bearer ${token}` },
         });
 

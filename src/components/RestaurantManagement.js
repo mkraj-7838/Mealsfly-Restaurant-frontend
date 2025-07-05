@@ -3,6 +3,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { FaMapMarkerAlt, FaSearch, FaEye, FaFilter } from 'react-icons/fa';
 import { toast } from 'react-toastify';
 import RestaurantDetailsModal from './RestaurantDetailsModal';
+import { BASE_API_URL } from './config'
+
 
 function RestaurantManagement({ token }) {
   const [restaurants, setRestaurants] = useState([]);
@@ -16,7 +18,7 @@ function RestaurantManagement({ token }) {
   useEffect(() => {
     const fetchRestaurants = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/admin/restaurants', {
+        const response = await fetch(`${BASE_API_URL}/admin/restaurants`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         if (!response.ok) {

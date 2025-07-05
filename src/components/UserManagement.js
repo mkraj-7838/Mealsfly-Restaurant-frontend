@@ -49,7 +49,7 @@ function UserManagement({ token }) {
 
   const handleApprove = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/api/admin/users/approve/${actionUserId}`, {
+      const response = await fetch(`${BASE_API_URL}/admin/users/approve/${actionUserId}`, {
         method: 'POST',
         headers: { Authorization: `Bearer ${token}` },
       });
@@ -72,7 +72,7 @@ function UserManagement({ token }) {
 
   const handleDelete = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/api/admin/users/${actionUserId}`, {
+      const response = await fetch(`${BASE_API_URL}/admin/users/${actionUserId}`, {
         method: 'DELETE',
         headers: { Authorization: `Bearer ${token}` },
       });
