@@ -27,7 +27,7 @@ function ReviewModal({ isOpen, setIsOpen, taskId, token, onSuccess }) {
           sources: ['local', 'camera'],
           multiple: false,
           clientAllowedFormats: ['jpg', 'png'],
-          maxImageFileSize: 5000000,
+          maxImageFileSize: 10000000,
         },
         (error, result) => {
           if (error) {
